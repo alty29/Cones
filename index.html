@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cone the Empanada Mama | Authentic Venezuelan Catering</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #D35400; /* Deep Terracotta */
+            --secondary: #F39C12; /* Sun Gold */
+            --dark: #1A1A1A;
+            --light: #F9F7F2;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--light); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* Navigation */
+        nav {
+            position: fixed; width: 100%; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center;
+            background: var(--glass); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); letter-spacing: -1px; }
+        .nav-links a { text-decoration: none; color: var(--dark); margin-left: 2rem; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Hero Section */
+        header {
+            height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=2000') no-repeat center center/cover;
+            color: white; padding: 0 5%;
+        }
+        .hero-content h1 { font-size: 5rem; line-height: 1; margin-bottom: 1rem; }
+        .hero-content p { font-size: 1.2rem; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2rem; }
+        .btn { padding: 1rem 2.5rem; background: var(--primary); color: white; text-decoration: none; font-weight: 600; border-radius: 50px; transition: 0.3s; display: inline-block; }
+        .btn:hover { background: var(--secondary); transform: translateY(-3px); }
+
+        /* Menu Section */
+        #menu { padding: 8rem 10%; background: white; }
+        .section-title { text-align: center; margin-bottom: 4rem; }
+        .section-title h2 { font-size: 3rem; margin-bottom: 10px; }
+        .section-title .divider { width: 60px; height: 4px; background: var(--secondary); margin: 0 auto; }
+
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; }
+        .menu-item { text-align: center; padding: 2rem; border: 1px solid #eee; border-radius: 20px; transition: 0.4s; }
+        .menu-item:hover { box-shadow: 0 20px 40px rgba(0,0,0,0.05); transform: translateY(-10px); }
+        .menu-item h3 { font-size: 1.8rem; margin: 1rem 0; color: var(--primary); }
+        .price { font-size: 1.5rem; font-weight: 600; color: var(--dark); margin-bottom: 1rem; }
+        .flavor-tag { background: #FDEBD0; color: #AF601A; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+
+        /* Story Section */
+        #story { padding: 8rem 10%; display: flex; align-items: center; gap: 5%; background: var(--light); }
+        .story-img { flex: 1; border-radius: 30px; overflow: hidden; height: 500px; }
+        .story-img img { width: 100%; height: 100%; object-fit: cover; }
+        .story-text { flex: 1; }
+        .story-text h2 { font-size: 3rem; margin-bottom: 1.5rem; }
+
+        /* Footer/Contact */
+        footer { padding: 5rem 10%; background: var(--dark); color: white; text-align: center; }
+        .contact-info { margin-bottom: 3rem; }
+        .socials a { color: white; font-size: 1.5rem; margin: 0 1rem; transition: 0.3s; }
+        .socials a:hover { color: var(--secondary); }
+        .footer-note { margin-top: 3rem; font-size: 0.8rem; opacity: 0.5; }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 3rem; }
+            #story { flex-direction: column; text-align: center; }
+            .story-img { width: 100%; height: 300px; margin-bottom: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">CONE <span style="font-weight:300">Empanada Mama</span></div>
+        <div class="nav-links">
+            <a href="#menu">THE MENU</a>
+            <a href="#story">OUR STORY</a>
+            <a href="#contact">CATERING</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="hero-content">
+            <p>Chef Michu Presents</p>
+            <h1>Sabor de Venezuela</h1>
+            <a href="#menu" class="btn">DISCOVER THE CRUNCH</a>
+        </div>
+    </header>
+
+    <section id="menu">
+        <div class="section-title">
+            <h2>Hand-Crafted Empanadas</h2>
+            <div class="divider"></div>
+            <p style="margin-top: 15px; color: #666;">Golden, crispy cornmeal dough filled with tradition.</p>
+        </div>
+
+        <div class="menu-grid">
+            <div class="menu-item">
+                <span class="flavor-tag">Classic</span>
+                <h3>Pollo Mechado</h3>
+                <p>Slow-cooked shredded chicken in a vibrant sofrito of bell peppers and sweet onions.</p>
+                <p class="price">$8</p>
+            </div>
+            <div class="menu-item">
+                <span class="flavor-tag">Slow-Roasted</span>
+                <h3>Cerdo Tradicional</h3>
+                <p>Tender pulled pork shoulder marinated in garlic, cumin, and Venezuelan spices.</p>
+                <p class="price">$8</p>
+            </div>
+            <div class="menu-item">
+                <span class="flavor-tag">Plant-Based</span>
+                <h3>Jardín Veggie</h3>
+                <p>A medley of seasoned black beans, sweet plantains, and sautéed garden vegetables.</p>
+                <p class="price">$8</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="story">
+        <div class="story-img">
+            <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&q=80&w=1000" alt="Chef Michu Cooking">
+        </div>
+        <div class="story-text">
+            <h2>The Soul of Chef Michu</h2>
+            <p>Born in Caracas and inspired by the bustling street markets of Venezuela, Chef Michu brings the "Cone" experience to your table. Every empanada is hand-pressed using 100% non-GMO cornmeal and fried to a perfect golden hue.</p>
+            <br>
+            <p>Our catering service isn't just about food; it's about the warmth of a Venezuelan home, delivered directly to your event.</p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="contact-info">
+            <h2>Let's Feed Your Guests</h2>
+            <p style="margin: 1rem 0 2rem;">Orders@ConeEmpanada.com | (555) 123-4567</p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <p class="footer-note">© 2024 Cone the Empanada Mama. All Rights Reserved. Made with ❤️ and Sazón.</p>
+    </footer>
+
+</body>
+</html>
