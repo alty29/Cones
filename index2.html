@@ -7,12 +7,40 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Outfit', sans-serif; background-color: #fff; color: #121212; }
+        body { 
+            font-family: 'Outfit', sans-serif; 
+            background-color: #fff; 
+            color: #121212; 
+            scroll-behavior: smooth;
+        }
         .accent-font { font-family: 'Playfair Display', serif; }
+        
+        /* The "Solar" Glow Animation */
         .sun-blur {
-            position: absolute; width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(255,184,0,0.15) 0%, rgba(255,255,255,0) 70%);
-            z-index: -1; top: -100px; left: -100px;
+            position: absolute; 
+            width: 600px; 
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,184,0,0.18) 0%, rgba(255,255,255,0) 70%);
+            z-index: -1; 
+            top: -200px; 
+            left: -200px;
+            animation: pulse 10s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 0.6; }
+        }
+
+        /* Subtle Fade-in for content */
+        .fade-in {
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -23,82 +51,5 @@
     <nav class="p-6 md:p-10 flex justify-between items-center sticky top-0 bg-white/80 backdrop-blur-md z-50">
         <div class="text-3xl font-900 tracking-tighter uppercase">Zulia<span class="text-yellow-500">.</span></div>
         <div class="hidden md:flex gap-10 text-xs font-bold uppercase tracking-widest">
-            <a href="#menu" class="hover:text-yellow-600">The Empanadas</a>
-            <a href="#about" class="hover:text-yellow-600">Chef Michu</a>
-            <a href="#contact" class="hover:text-yellow-600 underline">Book Catering</a>
-        </div>
-    </nav>
-
-    <section class="px-6 py-20 md:py-32 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <div>
-            <h2 class="text-sm font-bold uppercase tracking-[0.3em] mb-4 text-gray-400">Maracaibo to Philadelphia</h2>
-            <h1 class="text-6xl md:text-8xl font-900 leading-none tracking-tighter mb-8 italic accent-font">
-                Golden <br>Hand-Pressed <br>Tradition.
-            </h1>
-            <p class="text-lg text-gray-600 max-w-sm mb-10 leading-relaxed">
-                Chef Michu brings the heat of Zulia to Philly. Artisanal empanadas made from 100% non-GMO corn.
-            </p>
-            <div class="flex gap-4">
-                <a href="#menu" class="bg-black text-white px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-yellow-500 transition-all">View Menu</a>
-                <a href="#contact" class="border border-black px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-black hover:text-white transition-all">Catering</a>
-            </div>
-        </div>
-        <div class="relative">
-            <div class="aspect-square bg-gray-100 rounded-2xl overflow-hidden shadow-2xl">
-                <img src="https://cdn.greatlifepublishing.net/wp-content/uploads/sites/2/2024/01/22155822/Cheesy-Ground-Beef-Empanadas-Hori-03.jpg?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" alt="Zulia Empanada">
-            </div>
-            <div class="absolute -bottom-6 -left-6 bg-yellow-400 p-8 rounded-full shadow-xl rotate-12">
-                <span class="font-900 text-2xl">$8</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="menu" class="py-24 px-6 bg-stone-50">
-        <div class="max-w-6xl mx-auto">
-            <div class="mb-20">
-                <h3 class="text-4xl font-900 tracking-tighter uppercase italic accent-font">The Classic Three</h3>
-                <p class="text-gray-500 mt-2 font-medium">Simple. Fresh. Always $8.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-16">
-                <div class="group cursor-pointer">
-                    <div class="text-6xl font-900 opacity-10 mb-4 group-hover:opacity-100 transition-opacity">01</div>
-                    <h4 class="text-2xl font-bold uppercase border-b-2 border-black pb-2">Pollo Mechado</h4>
-                    <p class="mt-4 text-gray-500 leading-relaxed">Shredded chicken slow-stewed in a vibrant sweet pepper and onion sofrito.</p>
-                </div>
-                <div class="group cursor-pointer">
-                    <div class="text-6xl font-900 opacity-10 mb-4 group-hover:opacity-100 transition-opacity">02</div>
-                    <h4 class="text-2xl font-bold uppercase border-b-2 border-black pb-2">Cerdo Roast</h4>
-                    <p class="mt-4 text-gray-500 leading-relaxed">Tender pulled pork shoulder marinated in garlic, cumin, and Zulia spices.</p>
-                </div>
-                <div class="group cursor-pointer">
-                    <div class="text-6xl font-900 opacity-10 mb-4 group-hover:opacity-100 transition-opacity">03</div>
-                    <h4 class="text-2xl font-bold uppercase border-b-2 border-black pb-2">Jardín (V)</h4>
-                    <p class="mt-4 text-gray-500 leading-relaxed">Seasoned black beans and sweet plantains. The classic Maracucho veggie soul.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-24 px-6 max-w-4xl mx-auto text-center">
-        <h3 class="text-sm font-bold uppercase tracking-[0.4em] mb-12 text-yellow-600">Meet the Maker</h3>
-        <p class="text-3xl md:text-5xl font-light leading-tight tracking-tight">
-            "I grew up in my mother's kitchen in <span class="accent-font italic">Maracaibo</span>, watching my grandmother press masa. Today, I bring that same <span class="bg-yellow-200">sabor</span> to the streets of Philly."
-        </p>
-        <p class="mt-10 font-bold uppercase text-xs tracking-widest">— Chef Michu (Michelle Medina)</p>
-    </section>
-
-    <footer id="contact" class="p-10 md:p-20 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-10">
-        <div class="text-2xl font-900 uppercase">Zulia<span class="text-yellow-500">.</span></div>
-        <div class="text-center md:text-left">
-            <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Pop-Up & Catering</p>
-            <p class="text-xl font-bold">hello@zuliaphilly.com</p>
-        </div>
-        <div class="flex gap-6">
-            <a href="#" class="text-sm font-bold uppercase underline">Instagram</a>
-            <a href="#" class="text-sm font-bold uppercase underline">TikTok</a>
-        </div>
-    </footer>
-
-</body>
-</html>
+            <a href="#menu" class="hover:text-yellow-600 transition-colors">The Drop</a>
+            <a href="#about" class="hover:text-yellow-600 transition-colors">Chef Michu</a>
