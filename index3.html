@@ -234,6 +234,162 @@
             background: white;
         }
 
+        /* Packages Section */
+        .packages {
+            padding: 10rem 4rem;
+            background: #fafafa;
+        }
+
+        .packages-header {
+            max-width: 1400px;
+            margin: 0 auto 8rem;
+            text-align: center;
+        }
+
+        .packages-header .label {
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .packages-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 200;
+            color: #2a2a2a;
+            letter-spacing: 0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .packages-header p {
+            font-size: 1.05rem;
+            color: #666;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .packages-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .package-card {
+            background: white;
+            padding: 4rem 3rem;
+            border: 1px solid #e0e0e0;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            border-color: #2a2a2a;
+        }
+
+        .package-card .package-name {
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .package-card h3 {
+            font-size: 2rem;
+            font-weight: 400;
+            color: #2a2a2a;
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        .package-card .package-price {
+            font-size: 2.5rem;
+            font-weight: 200;
+            color: #2a2a2a;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-card .package-price span {
+            font-size: 1rem;
+            color: #999;
+            font-weight: 300;
+        }
+
+        .package-card .package-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            font-weight: 300;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .package-card ul {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .package-card ul li {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-weight: 300;
+        }
+
+        .package-card ul li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: #2a2a2a;
+            font-size: 1.5rem;
+            line-height: 0.9;
+        }
+
+        .package-featured {
+            border-color: #2a2a2a;
+            background: #2a2a2a;
+            color: white;
+        }
+
+        .package-featured .package-name,
+        .package-featured h3,
+        .package-featured .package-price,
+        .package-featured .package-desc,
+        .package-featured ul li {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .package-featured .package-name {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .package-featured .package-price span {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .package-featured .package-desc {
+            border-bottom-color: rgba(255,255,255,0.2);
+        }
+
+        .package-featured ul li::before {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .package-featured:hover {
+            background: #1a1a1a;
+        }
+
         .menu-header {
             max-width: 1400px;
             margin: 0 auto 8rem;
@@ -434,8 +590,13 @@
                 border-bottom: none;
             }
 
-            .menu, .contact {
+            .packages, .contact {
                 padding: 8rem 2rem;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .contact-details {
@@ -460,6 +621,7 @@
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#menu">Menu</a></li>
+            <li><a href="#packages">Packages</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -508,6 +670,58 @@
                 <div class="menu-number">03</div>
                 <h3>Vegetable</h3>
                 <p class="price">$8.00</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages" id="packages">
+        <div class="packages-header">
+            <div class="label">Catering Packages</div>
+            <h2>Curated for Your Event</h2>
+            <p>From intimate gatherings to large celebrations, we offer flexible catering options to suit your needs.</p>
+        </div>
+        <div class="packages-grid">
+            <div class="package-card">
+                <div class="package-name">Intimate</div>
+                <h3>Small Gathering</h3>
+                <div class="package-price">$120<span> / 15 empanadas</span></div>
+                <p class="package-desc">Perfect for small office meetings or family gatherings</p>
+                <ul>
+                    <li>15 empanadas (your choice)</li>
+                    <li>Mix & match any flavors</li>
+                    <li>Delivery included within 5 miles</li>
+                    <li>Disposable serving ware</li>
+                </ul>
+            </div>
+            
+            <div class="package-card package-featured">
+                <div class="package-name">Popular</div>
+                <h3>Standard Event</h3>
+                <div class="package-price">$320<span> / 40 empanadas</span></div>
+                <p class="package-desc">Ideal for parties, corporate events, and celebrations</p>
+                <ul>
+                    <li>40 empanadas (your choice)</li>
+                    <li>Mix & match any flavors</li>
+                    <li>Free delivery within 10 miles</li>
+                    <li>Premium serving platters</li>
+                    <li>Complimentary house-made sauces</li>
+                </ul>
+            </div>
+            
+            <div class="package-card">
+                <div class="package-name">Premium</div>
+                <h3>Large Celebration</h3>
+                <div class="package-price">$750<span> / 100 empanadas</span></div>
+                <p class="package-desc">For weddings, festivals, and major events</p>
+                <ul>
+                    <li>100 empanadas (your choice)</li>
+                    <li>Mix & match any flavors</li>
+                    <li>Free delivery (any distance)</li>
+                    <li>Full service setup & breakdown</li>
+                    <li>Signature sauces & condiments</li>
+                    <li>On-site warming stations</li>
+                </ul>
             </div>
         </div>
     </section>
