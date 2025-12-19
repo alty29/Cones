@@ -3,232 +3,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZULIA | Venezuelan Catering</title>
+    <title>ZULIA | Venezuelan Catering by Michu</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Updated VZ Modern Palette */
-            --bg-color: #F9F7F2;      /* Off-white "Paper" texture */
-            --accent-yellow: #FFB100; /* Deep Zulian Sun */
-            --dark-blue: #101B37;    /* Modern Indigo (The VZ Blue) */
-            --vz-red: #E63946;       /* Pop of muted red */
+            --bg-color: #F9F7F2;      /* Modern Paper White */
+            --accent-yellow: #FFB100; /* Zulian Sun */
+            --dark-blue: #101B37;     /* Caribbean Indigo */
+            --vz-red: #E63946;        /* Accent Red */
             --text-main: #101B37;
+            --white: #ffffff;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
             font-family: 'Space Grotesk', sans-serif;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        /* Hero Section */
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .nav-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            color: var(--accent-yellow);
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .nav-links a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* --- HERO --- */
         header {
             height: 100vh;
+            background-color: var(--dark-blue);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: var(--dark-blue);
-            color: var(--accent-yellow);
             text-align: center;
+            color: var(--accent-yellow);
             padding: 20px;
         }
 
         h1 {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(5rem, 15vw, 12rem);
+            font-size: clamp(5rem, 18vw, 14rem);
             line-height: 0.8;
             letter-spacing: -0.05em;
             text-transform: uppercase;
-            margin-bottom: 20px;
         }
 
-        .subtitle {
-            font-size: 1.2rem;
-            letter-spacing: 0.3em;
+        .hero-sub {
+            color: var(--white);
+            margin-top: 20px;
+            letter-spacing: 0.4em;
             text-transform: uppercase;
-            color: white;
+            font-size: clamp(0.8rem, 2vw, 1.2rem);
         }
 
-        /* Section Styling */
-        section {
-            padding: 120px 8%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        /* --- SECTIONS --- */
+        section { padding: 120px 8%; max-width: 1400px; margin: 0 auto; }
 
         .section-label {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            margin-bottom: 40px;
-            display: block;
+            letter-spacing: 0.3em;
             color: var(--vz-red);
+            margin-bottom: 20px;
+            display: block;
         }
 
         h2 {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            line-height: 1.1;
-            margin-bottom: 30px;
-            letter-spacing: -0.02em;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1;
+            margin-bottom: 40px;
+            letter-spacing: -0.03em;
         }
 
-        /* Menu Grid */
-        .menu-grid {
+        /* --- STORY --- */
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .story-text p { font-size: 1.4rem; margin-bottom: 30px; }
+
+        /* --- MENU --- */
+        .menu-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 60px;
-            margin-top: 60px;
+            gap: 40px;
+            margin-bottom: 60px;
         }
 
         .menu-item {
             border-top: 1px solid var(--dark-blue);
-            padding-top: 20px;
+            padding-top: 30px;
         }
 
-        .number {
-            font-family: 'Syne', sans-serif;
-            font-size: 1rem;
-            color: var(--vz-red);
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .menu-item h3 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .price {
-            font-weight: 700;
-            color: var(--accent-yellow);
-            background: var(--dark-blue);
+        .item-num { font-family: 'Syne'; color: var(--vz-red); }
+        .menu-item h3 { font-size: 2.2rem; text-transform: uppercase; margin: 10px 0; }
+        .price-tag { 
+            background: var(--dark-blue); 
+            color: var(--accent-yellow); 
+            padding: 5px 15px; 
             display: inline-block;
-            padding: 2px 10px;
+            font-weight: 700;
             margin-top: 10px;
         }
 
-        /* Catering Cards */
-        .package-container {
+        /* --- CATERING --- */
+        .pkg-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
         }
 
-        .package-card {
-            background: white;
-            padding: 40px;
+        .pkg-card {
+            background: var(--white);
+            padding: 50px 40px;
             border: 2px solid var(--dark-blue);
-            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
-        .package-card:hover {
-            background: var(--accent-yellow);
-            transform: rotate(-1deg);
+        .pkg-card.popular { background: var(--accent-yellow); }
+        .pkg-card h3 { font-family: 'Syne'; font-size: 1.8rem; margin-bottom: 10px; }
+        .pkg-price { font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; }
+        .pkg-features { list-style: none; margin-bottom: 30px; flex-grow: 1; }
+        .pkg-features li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .pkg-features li::before { content: "→"; position: absolute; left: 0; color: var(--vz-red); }
+
+        /* --- FOOTER/CONTACT --- */
+        footer {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 100px 8% 40px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .testimonial {
+            font-style: italic;
+            font-size: 1.5rem;
+            border-left: 4px solid var(--accent-yellow);
+            padding-left: 30px;
+            margin-bottom: 80px;
+            max-width: 800px;
         }
 
         .btn {
-            display: inline-block;
-            margin-top: 40px;
+            background: var(--accent-yellow);
+            color: var(--dark-blue);
             padding: 20px 40px;
-            background: var(--dark-blue);
-            color: white;
             text-decoration: none;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            display: inline-block;
             transition: 0.3s;
         }
 
-        .btn:hover {
-            background: var(--vz-red);
-        }
+        .btn:hover { background: var(--white); transform: translateY(-5px); }
 
-        footer {
-            background: var(--dark-blue);
-            color: white;
-            padding: 80px 8%;
-            text-align: center;
-        }
-
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            section { padding: 60px 5%; }
+        @media (max-width: 900px) {
+            .story-grid { grid-template-columns: 1fr; }
+            h2 { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
 
+    <nav>
+        <a href="#" class="nav-logo">ZULIA</a>
+        <div class="nav-links">
+            <a href="#about">Story</a>
+            <a href="#menu">Menu</a>
+            <a href="#catering">Catering</a>
+        </div>
+    </nav>
+
     <header>
         <h1>ZULIA</h1>
-        <p class="subtitle">Philadelphia • Maracaibo</p>
+        <p class="hero-sub">Venezuelan Catering • Philadelphia</p>
     </header>
 
     <section id="about">
-        <span class="section-label">The Story</span>
-        <div style="max-width: 800px;">
-            <h2>From my abuela's kitchen to the 215.</h2>
-            <p style="font-size: 1.5rem;">I grew up in Maracaibo watching my mother and grandmother master the art of the empanada. Today, I'm bringing that Zulian soul to Philly—hand-making every shell with the same love they taught me.</p>
-            <p style="margin-top: 20px; font-weight: 500;">— Chef Michelle "Michu" Medina</p>
+        <span class="section-label">Our Story</span>
+        <div class="story-grid">
+            <div class="story-text">
+                <h2>From my abuela's kitchen to yours.</h2>
+                <p>I grew up in Maracaibo watching my grandmother, mother, and aunt make empanadas. Now in Philadelphia, I'm making them the same way—by hand, with the recipes they taught me.</p>
+                <p>Every empanada is made to order. No shortcuts, no mass production. Just good food made the way it should be.</p>
+                <p><strong>Michelle "Michu" Medina</strong><br><small>Founder & Head Chef</small></p>
+            </div>
+            <div style="background: #e0e0e0; height: 500px; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+                <span style="color: #999;">[ Chef Photo ]</span>
+            </div>
         </div>
     </section>
 
-    <section id="menu" style="background-color: #fff;">
-        <span class="section-label">On the Menu</span>
-        <h2>Always Fresh. $8 Each.</h2>
-        <div class="menu-grid">
+    <section id="menu" style="background: var(--white);">
+        <span class="section-label">Empanadas</span>
+        <h2>Real. Authentic. Delicious.</h2>
+        <div class="menu-container">
             <div class="menu-item">
-                <span class="number">01</span>
-                <h3>Pollo</h3>
-                <p>Shredded chicken slow-cooked in traditional Zulian sofrito.</p>
-                <span class="price">$8.00</span>
+                <span class="item-num">01</span>
+                <h3>Chicken</h3>
+                <p>Slow-cooked shredded chicken with Venezuelan spices.</p>
+                <span class="price-tag">$8.00</span>
             </div>
             <div class="menu-item">
-                <span class="number">02</span>
-                <h3>Cerdo</h3>
-                <p>Tender pulled pork shoulder with garlic and sweet peppers.</p>
-                <span class="price">$8.00</span>
+                <span class="item-num">02</span>
+                <h3>Pork</h3>
+                <p>Tender seasoned pork with traditional herbs.</p>
+                <span class="price-tag">$8.00</span>
             </div>
             <div class="menu-item">
-                <span class="number">03</span>
-                <h3>Vegetal</h3>
-                <p>Seasonal veggies, black beans, and melted white cheese.</p>
-                <span class="price">$8.00</span>
+                <span class="item-num">03</span>
+                <h3>Vegetable</h3>
+                <p>Fresh vegetables with authentic Venezuelan flavors.</p>
+                <span class="price-tag">$8.00</span>
             </div>
+        </div>
+        <div style="max-width: 600px; border-left: 2px solid var(--accent-yellow); padding-left: 20px;">
+            <p>Each empanada is made by hand when you order. The dough is rolled fresh, the fillings are prepped daily, and everything gets fried to order.</p>
         </div>
     </section>
 
     <section id="catering">
-        <span class="section-label">Catering</span>
-        <h2>For the Crowd.</h2>
-        <div class="package-container">
-            <div class="package-card">
-                <h3>The Small Pop-Up</h3>
-                <p style="margin: 15px 0;">15 Empanadas. Perfect for office lunches or small hangs.</p>
-                <p class="price">$120</p>
+        <span class="section-label">Catering Packages</span>
+        <h2>For Your Event</h2>
+        <div class="pkg-grid">
+            <div class="pkg-card">
+                <h3>Intimate</h3>
+                <p>Small Gathering</p>
+                <p class="pkg-price">$120 / 15 empanadas</p>
+                <ul class="pkg-features">
+                    <li>15 empanadas (your choice)</li>
+                    <li>Mix & match any flavors</li>
+                    <li>Delivery included (5 miles)</li>
+                    <li>Disposable serving ware</li>
+                </ul>
+                <a href="mailto:hello@zulia.com" class="btn" style="background: var(--dark-blue); color: white;">Select</a>
             </div>
-            <div class="package-card" style="background: var(--accent-yellow);">
-                <h3>The Standard</h3>
-                <p style="margin: 15px 0;">40 Empanadas. Our most popular choice for Philly events.</p>
-                <p class="price" style="background: white; color: var(--dark-blue);">$320</p>
+            <div class="pkg-card popular">
+                <h3>Standard</h3>
+                <p>Our Most Popular</p>
+                <p class="pkg-price">$320 / 40 empanadas</p>
+                <ul class="pkg-features">
+                    <li>40 empanadas (your choice)</li>
+                    <li>Free delivery (10 miles)</li>
+                    <li>Premium serving platters</li>
+                    <li>Complimentary house sauces</li>
+                </ul>
+                <a href="mailto:hello@zulia.com" class="btn">Select</a>
+            </div>
+            <div class="pkg-card">
+                <h3>Premium</h3>
+                <p>Large Celebration</p>
+                <p class="pkg-price">$750 / 100 empanadas</p>
+                <ul class="pkg-features">
+                    <li>100 empanadas (your choice)</li>
+                    <li>Free delivery (All Philly)</li>
+                    <li>Full service setup</li>
+                    <li>Signature sauces & condiments</li>
+                    <li>On-site warming stations</li>
+                </ul>
+                <a href="mailto:hello@zulia.com" class="btn" style="background: var(--dark-blue); color: white;">Select</a>
             </div>
         </div>
-        <a href="mailto:hello@zuliaphilly.com" class="btn">Order Now</a>
     </section>
 
     <footer>
-        <p>© 2024 ZULIA. Hand-made in Philadelphia.</p>
-        <p style="margin-top: 10px; opacity: 0.6; font-size: 0.8rem;">Follow us @ZuliaPhilly</p>
+        <div class="testimonial">
+            "Best empanadas I've had outside of Venezuela. Michu's food always brings people together at our events."
+            <br><small style="font-style: normal; opacity: 0.7; font-size: 0.9rem;">— Alex R., Karate Instructor</small>
+        </div>
+        
+        <h2>Get in Touch</h2>
+        <p>Available for catering and pop-ups around Philly</p>
+        
+        <div class="contact-grid">
+            <div>
+                <p class="section-label" style="color: var(--accent-yellow);">Location</p>
+                <p>Philadelphia, PA</p>
+            </div>
+            <div>
+                <p class="section-label" style="color: var(--accent-yellow);">Email</p>
+                <p>hello@zulia.com</p>
+            </div>
+            <div>
+                <p class="section-label" style="color: var(--accent-yellow);">Instagram</p>
+                <p>@ZuliaPhilly</p>
+            </div>
+        </div>
+        <p style="margin-top: 80px; opacity: 0.4; font-size: 0.8rem;">© 2024 Zulia · Chef Michelle "Michu" Medina</p>
     </footer>
 
 </body>
