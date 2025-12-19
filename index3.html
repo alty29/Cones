@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZULIA - Venezuelan Catering & Pop-ups</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <title>ZULIA | Venezuelan Catering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* Updated VZ Modern Palette */
+            --bg-color: #F9F7F2;      /* Off-white "Paper" texture */
+            --accent-yellow: #FFB100; /* Deep Zulian Sun */
+            --dark-blue: #101B37;    /* Modern Indigo (The VZ Blue) */
+            --vz-red: #E63946;       /* Pop of muted red */
+            --text-main: #101B37;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,751 +22,214 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: #2a2a2a;
-            overflow-x: hidden;
-            background: #fafafa;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 2rem 4rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(250, 250, 250, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            padding: 1.5rem 4rem;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            color: #2a2a2a;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #666;
-            font-size: 0.85rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            transition: color 0.3s;
-            font-weight: 400;
-        }
-
-        .nav-links a:hover {
-            color: #2a2a2a;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.5;
         }
 
         /* Hero Section */
-        .hero {
+        header {
             height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            text-align: center;
-            background: #fafafa;
-            padding: 0 2rem;
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1px;
-            height: 80px;
-            background: linear-gradient(to bottom, transparent, #e0e0e0);
-        }
-
-        .hero-content h1 {
-            font-size: clamp(5rem, 15vw, 13rem);
-            font-weight: 200;
-            letter-spacing: 0.05em;
-            color: #2a2a2a;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 1.2s ease forwards;
-        }
-
-        .hero-content p {
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
-            color: #999;
-            font-weight: 300;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            opacity: 0;
-            animation: fadeInUp 1.2s ease 0.3s forwards;
-        }
-
-        .hero-content .separator {
-            display: inline-block;
-            margin: 0 1rem;
-            opacity: 0.3;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-        }
-
-        /* About Section */
-        .about {
-            padding: 10rem 4rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8rem;
             align-items: center;
-        }
-
-        .about-image {
-            width: 100%;
-            height: 650px;
-            background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="1" fill="%23ffffff" opacity="0.15"/></svg>');
-            animation: float 20s linear infinite;
-        }
-
-        @keyframes float {
-            to { transform: translate(60px, 60px); }
-        }
-
-        .about-image::after {
-            content: 'MARACAIBO → PHILADELPHIA';
-            position: absolute;
-            bottom: 2rem;
-            right: 2rem;
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            color: rgba(0,0,0,0.2);
-            font-weight: 500;
-        }
-
-        .about-text {
-            padding: 2rem 0;
-        }
-
-        .about-text .label {
-            font-size: 0.75rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: #999;
-            margin-bottom: 2rem;
-            font-weight: 500;
-            display: inline-block;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .about-text h2 {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 300;
-            margin-bottom: 2.5rem;
-            color: #2a2a2a;
-            line-height: 1.3;
-        }
-
-        .about-text p {
-            font-size: 1.05rem;
-            color: #666;
-            margin-bottom: 1.8rem;
-            line-height: 1.9;
-            font-weight: 300;
-        }
-
-        .chef-name {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .chef-name strong {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #2a2a2a;
-            display: block;
-            margin-bottom: 0.3rem;
-        }
-
-        .chef-name span {
-            font-size: 0.85rem;
-            color: #999;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        /* Menu Section */
-        .menu {
-            padding: 10rem 4rem;
-            background: white;
-        }
-
-        /* Packages Section */
-        .packages {
-            padding: 10rem 4rem;
-            background: #fafafa;
-        }
-
-        .packages-header {
-            max-width: 1400px;
-            margin: 0 auto 8rem;
+            background-color: var(--dark-blue);
+            color: var(--accent-yellow);
             text-align: center;
+            padding: 20px;
         }
 
-        .packages-header .label {
-            font-size: 0.75rem;
-            letter-spacing: 0.25em;
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(5rem, 15vw, 12rem);
+            line-height: 0.8;
+            letter-spacing: -0.05em;
             text-transform: uppercase;
-            color: #999;
-            margin-bottom: 2rem;
-            font-weight: 500;
+            margin-bottom: 20px;
         }
 
-        .packages-header h2 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 200;
-            color: #2a2a2a;
-            letter-spacing: 0.02em;
-            margin-bottom: 1.5rem;
+        .subtitle {
+            font-size: 1.2rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: white;
         }
 
-        .packages-header p {
-            font-size: 1.05rem;
-            color: #666;
-            font-weight: 300;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .packages-grid {
+        /* Section Styling */
+        section {
+            padding: 120px 8%;
             max-width: 1400px;
             margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 40px;
+            display: block;
+            color: var(--vz-red);
+        }
+
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: -0.02em;
+        }
+
+        /* Menu Grid */
+        .menu-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .menu-item {
+            border-top: 1px solid var(--dark-blue);
+            padding-top: 20px;
+        }
+
+        .number {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            color: var(--vz-red);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .menu-item h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--accent-yellow);
+            background: var(--dark-blue);
+            display: inline-block;
+            padding: 2px 10px;
+            margin-top: 10px;
+        }
+
+        /* Catering Cards */
+        .package-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
         }
 
         .package-card {
             background: white;
-            padding: 4rem 3rem;
-            border: 1px solid #e0e0e0;
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .package-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-            border-color: #2a2a2a;
-        }
-
-        .package-card .package-name {
-            font-size: 0.7rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: #999;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
-
-        .package-card h3 {
-            font-size: 2rem;
-            font-weight: 400;
-            color: #2a2a2a;
-            margin-bottom: 1rem;
-            letter-spacing: 0.02em;
-        }
-
-        .package-card .package-price {
-            font-size: 2.5rem;
-            font-weight: 200;
-            color: #2a2a2a;
-            margin-bottom: 0.5rem;
-        }
-
-        .package-card .package-price span {
-            font-size: 1rem;
-            color: #999;
-            font-weight: 300;
-        }
-
-        .package-card .package-desc {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 2.5rem;
-            line-height: 1.7;
-            font-weight: 300;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .package-card ul {
-            list-style: none;
-            margin-bottom: 2.5rem;
-        }
-
-        .package-card ul li {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
-            font-weight: 300;
-        }
-
-        .package-card ul li::before {
-            content: '·';
-            position: absolute;
-            left: 0;
-            color: #2a2a2a;
-            font-size: 1.5rem;
-            line-height: 0.9;
-        }
-
-        .package-featured {
-            border-color: #2a2a2a;
-            background: #2a2a2a;
-            color: white;
-        }
-
-        .package-featured .package-name,
-        .package-featured h3,
-        .package-featured .package-price,
-        .package-featured .package-desc,
-        .package-featured ul li {
-            color: rgba(255,255,255,0.9);
-        }
-
-        .package-featured .package-name {
-            color: rgba(255,255,255,0.6);
-        }
-
-        .package-featured .package-price span {
-            color: rgba(255,255,255,0.6);
-        }
-
-        .package-featured .package-desc {
-            border-bottom-color: rgba(255,255,255,0.2);
-        }
-
-        .package-featured ul li::before {
-            color: rgba(255,255,255,0.9);
-        }
-
-        .package-featured:hover {
-            background: #1a1a1a;
-        }
-
-        .menu-header {
-            max-width: 1400px;
-            margin: 0 auto 8rem;
-            text-align: center;
-        }
-
-        .menu-header .label {
-            font-size: 0.75rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: #999;
-            margin-bottom: 2rem;
-            font-weight: 500;
-        }
-
-        .menu-header h2 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 200;
-            color: #2a2a2a;
-            letter-spacing: 0.02em;
-        }
-
-        .menu-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
-            border: 1px solid #e0e0e0;
-        }
-
-        .menu-item {
-            padding: 5rem 3rem;
-            text-align: center;
-            border-right: 1px solid #e0e0e0;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .menu-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #fafafa;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
-        }
-
-        .menu-item:hover::before {
-            transform: translateY(0);
-        }
-
-        .menu-item > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        .menu-item:last-child {
-            border-right: none;
-        }
-
-        .menu-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .menu-number {
-            font-size: 0.75rem;
-            color: #ccc;
-            letter-spacing: 0.2em;
-            margin-bottom: 2rem;
-            font-weight: 500;
-        }
-
-        .menu-item h3 {
-            font-size: 1.8rem;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-            color: #2a2a2a;
-            letter-spacing: 0.05em;
-        }
-
-        .menu-item .price {
-            font-size: 1.1rem;
-            color: #666;
-            font-weight: 300;
-            letter-spacing: 0.05em;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 12rem 4rem;
-            background: #2a2a2a;
-            color: white;
-            text-align: center;
-            position: relative;
-        }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1px;
-            height: 80px;
-            background: linear-gradient(to bottom, #e0e0e0, transparent);
-        }
-
-        .contact h2 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 200;
-            margin-bottom: 2rem;
-            letter-spacing: 0.02em;
-        }
-
-        .contact > p {
-            font-size: 1.05rem;
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 6rem;
-            font-weight: 300;
-            letter-spacing: 0.02em;
-        }
-
-        .contact-details {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 4rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .contact-item {
-            font-size: 1rem;
-            color: rgba(255,255,255,0.9);
-            font-weight: 300;
-            letter-spacing: 0.02em;
-            padding: 2rem;
-            border: 1px solid rgba(255,255,255,0.1);
+            padding: 40px;
+            border: 2px solid var(--dark-blue);
             transition: all 0.3s ease;
         }
 
-        .contact-item:hover {
-            border-color: rgba(255,255,255,0.3);
-            transform: translateY(-5px);
+        .package-card:hover {
+            background: var(--accent-yellow);
+            transform: rotate(-1deg);
         }
 
-        .contact-item .label-small {
-            display: block;
-            font-size: 0.7rem;
-            letter-spacing: 0.25em;
+        .btn {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 20px 40px;
+            background: var(--dark-blue);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.4);
-            margin-bottom: 1rem;
-            font-weight: 500;
+            letter-spacing: 0.1em;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--vz-red);
         }
 
         footer {
-            background: #1a1a1a;
-            color: rgba(255,255,255,0.4);
+            background: var(--dark-blue);
+            color: white;
+            padding: 80px 8%;
             text-align: center;
-            padding: 3rem;
-            font-size: 0.75rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            font-weight: 300;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            nav, nav.scrolled {
-                padding: 1.5rem 2rem;
-            }
-
-            .about {
-                grid-template-columns: 1fr;
-                gap: 4rem;
-                padding: 8rem 2rem;
-            }
-
-            .about-image {
-                height: 500px;
-            }
-
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .menu-item {
-                border-right: none;
-                border-bottom: 1px solid #e0e0e0;
-            }
-
-            .menu-item:last-child {
-                border-bottom: none;
-            }
-
-            .packages, .contact {
-                padding: 8rem 2rem;
-            }
-
-            .packages-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .contact-details {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-            }
-        }
-
-        html {
-            scroll-behavior: smooth;
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            section { padding: 60px 5%; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav id="nav">
-        <div class="logo">ZULIA</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#menu">Menu</a></li>
-            <li><a href="#packages">Packages</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>ZULIA</h1>
-            <p>Venezuelan Catering <span class="separator">·</span> Philadelphia</p>
+    <header>
+        <h1>ZULIA</h1>
+        <p class="subtitle">Philadelphia • Maracaibo</p>
+    </header>
+
+    <section id="about">
+        <span class="section-label">The Story</span>
+        <div style="max-width: 800px;">
+            <h2>From my abuela's kitchen to the 215.</h2>
+            <p style="font-size: 1.5rem;">I grew up in Maracaibo watching my mother and grandmother master the art of the empanada. Today, I'm bringing that Zulian soul to Philly—hand-making every shell with the same love they taught me.</p>
+            <p style="margin-top: 20px; font-weight: 500;">— Chef Michelle "Michu" Medina</p>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="about-image"></div>
-        <div class="about-text">
-            <div class="label">Our Story</div>
-            <h2>Authentic Venezuelan cuisine, crafted with generations of tradition</h2>
-            <p>Chef Michelle "Michu" Medina brings the flavors of Maracaibo to Philadelphia, creating handmade empanadas using recipes passed down from her father, mother, and grandmother.</p>
-            <p>Each empanada is a celebration of Venezuelan heritage, made with care and authenticity for your catering needs and pop-up events throughout the city.</p>
-            <div class="chef-name">
-                <strong>Michelle "Michu" Medina</strong>
-                <span>Founder & Head Chef</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Menu Section -->
-    <section class="menu" id="menu">
-        <div class="menu-header">
-            <div class="label">Empanadas</div>
-            <h2>Simple. Authentic. Delicious.</h2>
-        </div>
+    <section id="menu" style="background-color: #fff;">
+        <span class="section-label">On the Menu</span>
+        <h2>Always Fresh. $8 Each.</h2>
         <div class="menu-grid">
             <div class="menu-item">
-                <div class="menu-number">01</div>
-                <h3>Chicken</h3>
-                <p class="price">$8.00</p>
+                <span class="number">01</span>
+                <h3>Pollo</h3>
+                <p>Shredded chicken slow-cooked in traditional Zulian sofrito.</p>
+                <span class="price">$8.00</span>
             </div>
             <div class="menu-item">
-                <div class="menu-number">02</div>
-                <h3>Pork</h3>
-                <p class="price">$8.00</p>
+                <span class="number">02</span>
+                <h3>Cerdo</h3>
+                <p>Tender pulled pork shoulder with garlic and sweet peppers.</p>
+                <span class="price">$8.00</span>
             </div>
             <div class="menu-item">
-                <div class="menu-number">03</div>
-                <h3>Vegetable</h3>
-                <p class="price">$8.00</p>
+                <span class="number">03</span>
+                <h3>Vegetal</h3>
+                <p>Seasonal veggies, black beans, and melted white cheese.</p>
+                <span class="price">$8.00</span>
             </div>
         </div>
     </section>
 
-    <!-- Packages Section -->
-    <section class="packages" id="packages">
-        <div class="packages-header">
-            <div class="label">Catering Packages</div>
-            <h2>Curated for Your Event</h2>
-            <p>From intimate gatherings to large celebrations, we offer flexible catering options to suit your needs.</p>
-        </div>
-        <div class="packages-grid">
+    <section id="catering">
+        <span class="section-label">Catering</span>
+        <h2>For the Crowd.</h2>
+        <div class="package-container">
             <div class="package-card">
-                <div class="package-name">Intimate</div>
-                <h3>Small Gathering</h3>
-                <div class="package-price">$120<span> / 15 empanadas</span></div>
-                <p class="package-desc">Perfect for small office meetings or family gatherings</p>
-                <ul>
-                    <li>15 empanadas (your choice)</li>
-                    <li>Mix & match any flavors</li>
-                    <li>Delivery included within 5 miles</li>
-                    <li>Disposable serving ware</li>
-                </ul>
+                <h3>The Small Pop-Up</h3>
+                <p style="margin: 15px 0;">15 Empanadas. Perfect for office lunches or small hangs.</p>
+                <p class="price">$120</p>
             </div>
-            
-            <div class="package-card package-featured">
-                <div class="package-name">Popular</div>
-                <h3>Standard Event</h3>
-                <div class="package-price">$320<span> / 40 empanadas</span></div>
-                <p class="package-desc">Ideal for parties, corporate events, and celebrations</p>
-                <ul>
-                    <li>40 empanadas (your choice)</li>
-                    <li>Mix & match any flavors</li>
-                    <li>Free delivery within 10 miles</li>
-                    <li>Premium serving platters</li>
-                    <li>Complimentary house-made sauces</li>
-                </ul>
-            </div>
-            
-            <div class="package-card">
-                <div class="package-name">Premium</div>
-                <h3>Large Celebration</h3>
-                <div class="package-price">$750<span> / 100 empanadas</span></div>
-                <p class="package-desc">For weddings, festivals, and major events</p>
-                <ul>
-                    <li>100 empanadas (your choice)</li>
-                    <li>Mix & match any flavors</li>
-                    <li>Free delivery (any distance)</li>
-                    <li>Full service setup & breakdown</li>
-                    <li>Signature sauces & condiments</li>
-                    <li>On-site warming stations</li>
-                </ul>
+            <div class="package-card" style="background: var(--accent-yellow);">
+                <h3>The Standard</h3>
+                <p style="margin: 15px 0;">40 Empanadas. Our most popular choice for Philly events.</p>
+                <p class="price" style="background: white; color: var(--dark-blue);">$320</p>
             </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2>Get in Touch</h2>
-        <p>Available for catering and pop-up events throughout Philadelphia</p>
-        <div class="contact-details">
-            <div class="contact-item">
-                <span class="label-small">Location</span>
-                Philadelphia, PA
-            </div>
-            <div class="contact-item">
-                <span class="label-small">Email</span>
-                hello@zulia.com
-            </div>
-            <div class="contact-item">
-                <span class="label-small">Phone</span>
-                (215) 555-ZULIA
-            </div>
-        </div>
+        <a href="mailto:hello@zuliaphilly.com" class="btn">Order Now</a>
     </section>
 
     <footer>
-        © 2024 Zulia · Chef Michelle "Michu" Medina
+        <p>© 2024 ZULIA. Hand-made in Philadelphia.</p>
+        <p style="margin-top: 10px; opacity: 0.6; font-size: 0.8rem;">Follow us @ZuliaPhilly</p>
     </footer>
 
-    <script>
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', function() {
-            const nav = document.getElementById('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    </script>
 </body>
 </html>
