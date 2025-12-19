@@ -10,62 +10,62 @@
         body { font-family: 'Outfit', sans-serif; background-color: #fff; color: #121212; scroll-behavior: smooth; }
         .accent-font { font-family: 'Playfair Display', serif; }
         
-        .logo-link { display: flex; align-items: center; gap: 2px; text-decoration: none; color: inherit; }
-        .logo-text { font-weight: 900; font-size: 2.2rem; letter-spacing: -2px; display: flex; align-items: center; line-height: 1; }
+        /* Fixed Logo Container */
+        .logo-wrapper { display: flex; align-items: center; gap: 8px; }
+        .logo-svg { height: 38px; width: auto; }
+        .logo-text { font-weight: 900; font-size: 2.2rem; letter-spacing: -2px; line-height: 1; }
+        .logo-dot { width: 10px; height: 10px; background-color: #FBBF24; border-radius: 50%; margin-top: 14px; }
         
-        /* The Absolute Fix: Pure Vector Path - No Fonts, No Layering */
-        .z-bolt-vector { height: 42px; width: auto; margin-right: -2px; }
-        
-        .logo-dot { width: 10px; height: 10px; background-color: #FBBF24; border-radius: 50%; margin-top: 18px; margin-left: 2px; }
-        
+        /* Sun Flare Effect */
         .sun-blur {
             position: absolute; width: 600px; height: 600px;
             background: radial-gradient(circle, rgba(255,184,0,0.1) 0%, rgba(255,255,255,0) 70%);
-            z-index: -1; top: -200px; left: -200px;
+            z-index: -1; top: -150px; left: -150px; pointer-events: none;
         }
 
-        .hero-img-container { position: relative; width: 100%; height: 100%; min-height: 400px; }
-        .hero-img-container img { width: 100%; height: 100%; object-fit: cover; border-radius: 2rem; }
+        /* Hero Image Fix - Ensuring it fills the space correctly */
+        .hero-image-block { position: relative; width: 100%; height: 500px; }
+        .hero-image-block img { width: 100%; height: 100%; object-fit: cover; border-radius: 2.5rem; }
     </style>
 </head>
 <body class="selection:bg-yellow-200">
 
     <div class="sun-blur"></div>
 
-    <nav class="p-6 md:p-10 flex justify-between items-center sticky top-0 bg-white/90 backdrop-blur-md z-50">
-        <a href="#" class="logo-link">
-            <div class="logo-text">
-                <svg class="z-bolt-vector" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 12H38V18L18 36H38V42H10V36L30 18H10V12Z" fill="black"/>
-                    <path d="M28 6L16 22H26L24 44L40 18H28L30 6Z" fill="#FBBF24" stroke="white" stroke-width="2"/>
-                </svg>
-                <span>ULIA</span>
-            </div>
+    <nav class="p-6 md:px-12 md:py-8 flex justify-between items-center sticky top-0 bg-white/90 backdrop-blur-md z-50">
+        <div class="logo-wrapper">
+            <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 30H70V40L40 70H70V80H20V70L50 40H20V30Z" fill="black"/>
+                <path d="M35 10L15 45H35L30 90L65 35H40L45 10Z" fill="#FBBF24" stroke="white" stroke-width="3"/>
+            </svg>
+            <span class="logo-text">ULIA</span>
             <div class="logo-dot"></div>
-        </a>
-        <div class="hidden md:flex gap-10 text-[10px] font-bold uppercase tracking-[0.2em]">
+        </div>
+        
+        <div class="hidden md:flex gap-10 text-[10px] font-bold uppercase tracking-[0.2em] items-center">
             <a href="#menu" class="hover:text-yellow-600 transition-colors">The Drop</a>
             <a href="#catering" class="hover:text-yellow-600 transition-colors">Catering</a>
-            <a href="#contact" class="bg-yellow-400 px-10 py-4 rounded-full hover:bg-black hover:text-white transition-all uppercase tracking-widest text-[9px] font-black">Contact Michu</a>
+            <a href="#contact" class="bg-yellow-400 px-8 py-3 rounded-full hover:bg-black hover:text-white transition-all font-black">Contact Michu</a>
         </div>
     </nav>
 
-    <section class="px-6 py-12 md:py-20 max-w-7xl mx-auto grid md:grid-cols-5 gap-12 items-center">
-        <div class="md:col-span-3">
+    <section class="px-6 py-12 md:py-24 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div class="order-2 md:order-1">
             <h2 class="text-sm font-bold uppercase tracking-[0.3em] mb-4 text-gray-400">Maracaibo to Philadelphia</h2>
-            <h1 class="text-6xl md:text-9xl font-900 leading-[0.85] tracking-tighter mb-8 italic accent-font">
+            <h1 class="text-6xl md:text-8xl font-900 leading-[0.85] tracking-tighter mb-8 italic accent-font">
                 Golden <br>Hand-Pressed <br>Tradition.
             </h1>
             <p class="text-xl text-gray-600 max-w-md mb-10 leading-relaxed font-light">
                 Chef Michu brings the heat of Zulia to Philly. Artisanal empanadas made from 100% non-GMO corn and centuries of sazón.
             </p>
-            <a href="#menu" class="inline-block bg-black text-white px-12 py-5 rounded-full font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-yellow-500 hover:text-black transition-all">Explore the menu</a>
+            <a href="#menu" class="inline-block bg-black text-white px-12 py-5 rounded-full font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-yellow-500 hover:text-black transition-all shadow-xl">Explore the menu</a>
         </div>
-        <div class="md:col-span-2 relative">
-            <div class="hero-img-container shadow-2xl">
-                <img src="https://cdn.greatlifepublishing.net/wp-content/uploads/sites/2/2024/01/22155822/Cheesy-Ground-Beef-Empanadas-Hori-03.jpg?auto=format&fit=crop&q=80&w=800" class="grayscale hover:grayscale-0 transition-all duration-700" alt="Zulia Empanada">
+        
+        <div class="order-1 md:order-2 relative">
+            <div class="hero-image-block shadow-2xl overflow-hidden group">
+                <img src="https://cdn.greatlifepublishing.net/wp-content/uploads/sites/2/2024/01/22155822/Cheesy-Ground-Beef-Empanadas-Hori-03.jpg?auto=format&fit=crop&q=80&w=800" class="grayscale group-hover:grayscale-0 transition-all duration-1000" alt="Zulia Empanada">
             </div>
-            <div class="absolute -bottom-8 -left-8 bg-yellow-400 w-28 h-28 rounded-full shadow-2xl rotate-12 font-900 text-4xl flex items-center justify-center border-4 border-white">
+            <div class="absolute -bottom-6 -left-6 bg-yellow-400 w-24 h-24 rounded-full shadow-2xl rotate-12 font-900 text-3xl flex items-center justify-center border-4 border-white">
                 $8
             </div>
         </div>
@@ -73,58 +73,39 @@
 
     <section id="menu" class="py-24 px-6 bg-stone-50">
         <div class="max-w-6xl mx-auto">
-            <div class="mb-20">
+            <div class="mb-20 text-center">
                 <h3 class="text-5xl font-900 tracking-tighter uppercase italic accent-font">The Classic Three</h3>
-                <p class="text-gray-500 mt-2 font-medium tracking-widest uppercase text-xs">Simple. Fresh. Always $8.</p>
+                <p class="text-gray-500 mt-2 font-medium tracking-widest uppercase text-xs">Fresh Every Day • Maracaibo Heart</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-16">
-                <div class="group">
-                    <div class="text-6xl font-900 opacity-10 mb-4 group-hover:text-yellow-500 transition-all">01</div>
-                    <h4 class="text-2xl font-bold uppercase border-b-2 border-black pb-2 mb-4">Pollo Mechado</h4>
-                    <p class="text-gray-500 leading-relaxed">Shredded chicken slow-stewed in a sweet pepper and onion sofrito.</p>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="p-8 bg-white rounded-3xl shadow-sm hover:shadow-xl transition-shadow">
+                    <div class="text-5xl font-900 text-yellow-500 mb-6">01</div>
+                    <h4 class="text-2xl font-bold uppercase mb-4">Pollo Mechado</h4>
+                    <p class="text-gray-500 font-light">Shredded chicken slow-stewed in a vibrant sweet pepper and onion sofrito.</p>
                 </div>
-                <div class="group">
-                    <div class="text-6xl font-900 opacity-10 mb-4 group-hover:text-yellow-500 transition-all">02</div>
-                    <h4 class="text-2xl font-bold uppercase border-b-2 border-black pb-2 mb-4">Cerdo Roast</h4>
-                    <p class="text-gray-500 leading-relaxed">Tender pulled pork shoulder marinated in garlic, cumin, and Zulia spices.</p>
+                <div class="p-8 bg-white rounded-3xl shadow-sm hover:shadow-xl transition-shadow">
+                    <div class="text-5xl font-900 text-yellow-500 mb-6">02</div>
+                    <h4 class="text-2xl font-bold uppercase mb-4">Cerdo Roast</h4>
+                    <p class="text-gray-500 font-light">Tender pulled pork shoulder marinated in garlic, cumin, and Zulia spices.</p>
                 </div>
-                <div class="group">
-                    <div class="text-6xl font-900 opacity-10 mb-4 group-hover:text-yellow-500 transition-all">03</div>
-                    <h4 class="text-2xl font-bold uppercase border-b-2 border-black pb-2 mb-4">Jardín (V)</h4>
-                    <p class="text-gray-500 leading-relaxed">Seasoned black beans and sweet plantains. The Maracucho soul.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-24 px-6 bg-white border-t border-gray-100">
-        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-16">
-            <div>
-                <h3 class="text-4xl font-900 tracking-tighter uppercase italic accent-font mb-6">Catering</h3>
-                <p class="text-gray-500 font-light leading-relaxed mb-8">Ready to bring the heat to your next event?</p>
-                <div class="text-xs font-bold uppercase tracking-widest">
-                    <p class="text-yellow-600">Direct Line</p>
-                    <p class="text-lg normal-case tracking-normal">hello@zuliaphilly.com</p>
+                <div class="p-8 bg-white rounded-3xl shadow-sm hover:shadow-xl transition-shadow">
+                    <div class="text-5xl font-900 text-yellow-500 mb-6">03</div>
+                    <h4 class="text-2xl font-bold uppercase mb-4">Jardín (V)</h4>
+                    <p class="text-gray-500 font-light">Seasoned black beans and sweet plantains. The classic veggie soul of Zulia.</p>
                 </div>
             </div>
-            <form class="space-y-6">
-                <input type="text" placeholder="NAME" class="w-full py-4 text-[10px] font-bold tracking-widest uppercase">
-                <input type="email" placeholder="EMAIL" class="w-full py-4 text-[10px] font-bold tracking-widest uppercase">
-                <textarea rows="3" placeholder="MESSAGE" class="w-full py-4 text-[10px] font-bold tracking-widest uppercase"></textarea>
-                <button type="submit" class="w-full bg-black text-white py-5 rounded-full font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-yellow-500 hover:text-black transition-all">Submit Request</button>
-            </form>
         </div>
     </section>
 
     <footer class="bg-black text-white p-12 md:p-24">
-        <div class="logo-text text-white mb-10">
-            <svg class="z-bolt-vector" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 12H38V18L18 36H38V42H10V36L30 18H10V12Z" fill="white"/>
-                <path d="M28 6L16 22H26L24 44L40 18H28L30 6Z" fill="#FBBF24" />
+        <div class="logo-wrapper mb-8">
+            <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 30H70V40L40 70H70V80H20V70L50 40H20V30Z" fill="white"/>
+                <path d="M35 10L15 45H35L30 90L65 35H40L45 10Z" fill="#FBBF24" />
             </svg>
-            <span>ULIA</span>
+            <span class="logo-text">ULIA</span>
         </div>
-        <p class="text-[9px] uppercase tracking-[0.5em] text-gray-500">©2024 Zulia Street Food • Philly Made</p>
+        <p class="text-[9px] uppercase tracking-[0.5em] text-gray-500">©2024 Zulia Street Food • Philly Made • Maracaibo Soul</p>
     </footer>
 
 </body>
