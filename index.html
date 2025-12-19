@@ -9,114 +9,97 @@
     <style>
         body { font-family: 'Outfit', sans-serif; background-color: #fff; color: #121212; scroll-behavior: smooth; }
         .accent-font { font-family: 'Playfair Display', serif; }
-        
-        /* THE ULTIMATE LOGO FIX: Embedded Base64 Image */
-        /* This ensures the Z and Bolt are ONE fixed graphic that can never drift */
-        .brand-logo {
-            height: 40px;
-            width: 140px;
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 50'%3E%3Cpath d='M10 10h30v6L22 34h18v6H10v-6l18-18H10v-6z' fill='black'/%3E%3Cpath d='M28 2l-12 18h10l-2 18 16-22h-12l4-14z' fill='%23FBBF24' stroke='white' stroke-width='2'/%3E%3Ctext x='45' y='40' font-family='Arial, sans-serif' font-weight='900' font-size='32' letter-spacing='-2'%3EULIA%3C/text%3E%3Ccircle cx='135' cy='35' r='5' fill='%23FBBF24'/%3E%3C/svg%3E");
-        }
 
-        .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; min-height: 80vh; align-items: center; gap: 4rem; }
-        @media (max-width: 768px) { .hero-grid { grid-template-columns: 1fr; text-align: center; } }
+        /* THE ABSOLUTE LOGO FIX: One Coordinate Map */
+        .logo-container { display: flex; align-items: center; gap: 4px; }
+        .logo-svg { height: 44px; width: auto; overflow: visible; }
+        .logo-text { font-weight: 900; font-size: 2.2rem; letter-spacing: -2px; line-height: 1; }
+        .logo-dot { width: 10px; height: 10px; background-color: #FBBF24; border-radius: 50%; margin-top: 16px; margin-left: 2px; }
 
-        .hero-img-box { position: relative; width: 100%; border-radius: 2.5rem; overflow: visible; box-shadow: 0 40px 80px -20px rgba(0,0,0,0.15); }
-        .hero-img-box img { width: 100%; height: auto; border-radius: 2.5rem; display: block; }
+        /* Hero Image Layout Fix */
+        .hero-section { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; min-height: 80vh; }
+        @media (max-width: 768px) { .hero-section { grid-template-columns: 1fr; text-align: center; } }
+
+        .img-wrapper { position: relative; width: 100%; max-width: 500px; margin: 0 auto; }
+        .img-wrapper img { width: 100%; height: auto; border-radius: 3rem; box-shadow: 0 40px 80px rgba(0,0,0,0.1); }
         
-        .floating-badge {
+        .badge-8 {
             position: absolute; bottom: -20px; left: -20px;
-            background: #FBBF24; width: 90px; height: 90px; border-radius: 50%;
+            background: #FBBF24; width: 95px; height: 95px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-weight: 900; font-size: 2.2rem; border: 8px solid white; transform: rotate(-12deg);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            font-weight: 900; font-size: 2.5rem; border: 8px solid white; 
+            transform: rotate(-10deg); box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-
-        .menu-card { background: #fbfbfb; padding: 3rem; border-radius: 2rem; transition: all 0.3s ease; border: 1px solid #f0f0f0; }
-        .menu-card:hover { transform: translateY(-10px); background: #fff; box-shadow: 0 30px 60px rgba(0,0,0,0.05); }
     </style>
 </head>
 <body class="selection:bg-yellow-200">
 
     <nav class="p-6 md:px-16 flex justify-between items-center sticky top-0 bg-white/90 backdrop-blur-md z-50">
-        <a href="#" class="brand-logo"></a>
-        <div class="hidden md:flex gap-10 text-[10px] font-black uppercase tracking-[0.2em]">
-            <a href="#menu" class="hover:text-yellow-500 transition-all">The Drop</a>
-            <a href="#catering" class="hover:text-yellow-500 transition-all">Catering</a>
-            <a href="#contact" class="bg-black text-white px-8 py-3 rounded-full hover:bg-yellow-500 hover:text-black transition-all">Contact</a>
+        <div class="logo-container">
+            <svg class="logo-svg" viewBox="0 0 110 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M30 25h50v10L50 65h30v10H30V65l30-30H30V25z" fill="black"/>
+                <path d="M38 5L20 40h18l-6 45 35-50H45l6-35z" fill="#FBBF24" stroke="white" stroke-width="4"/>
+            </svg>
+            <span class="logo-text">ULIA</span>
+            <div class="logo-dot"></div>
+        </div>
+        <div class="hidden md:flex gap-10 text-[10px] font-black uppercase tracking-widest">
+            <a href="#menu" class="hover:text-yellow-600 transition-all">The Drop</a>
+            <a href="#contact" class="bg-black text-white px-8 py-3 rounded-full hover:bg-yellow-400 hover:text-black transition-all">Contact</a>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-6 md:px-16 py-12">
-        <section class="hero-grid">
+    <main class="max-w-7xl mx-auto px-6 md:px-16 py-12 md:py-20">
+        <div class="hero-section">
             <div class="order-2 md:order-1">
-                <p class="text-[10px] font-black uppercase tracking-[0.5em] text-stone-400 mb-6">Maracaibo to Philadelphia</p>
+                <p class="text-[10px] font-black uppercase tracking-[0.4em] text-stone-400 mb-6">Maracaibo to Philadelphia</p>
                 <h1 class="accent-font italic text-6xl md:text-[8.5rem] leading-[0.85] tracking-tighter mb-10">
                     Golden <br> Hand-Pressed <br> Tradition.
                 </h1>
-                <p class="text-xl text-stone-500 font-light max-w-md mb-10 leading-relaxed">
-                    Chef Michu brings the heat of Zulia to Philly. Artisanal empanadas made from 100% non-GMO corn and centuries of sazón.
+                <p class="text-xl text-stone-500 font-light max-w-md mb-12 leading-relaxed">
+                    Chef Michu brings the heat of Zulia to Philly. Artisanal empanadas made from 100% non-GMO corn and generations of sazón.
                 </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#menu" class="bg-black text-white px-12 py-5 rounded-full font-black uppercase text-[10px] tracking-widest hover:bg-yellow-400 hover:text-black transition-all shadow-xl">Explore Menu</a>
-                    <a href="#catering" class="px-12 py-5 rounded-full font-black uppercase text-[10px] tracking-widest border border-stone-200 hover:bg-stone-50">Catering</a>
-                </div>
+                <a href="#menu" class="bg-black text-white px-12 py-5 rounded-full font-black uppercase text-[10px] tracking-widest hover:bg-yellow-400 hover:text-black transition-all shadow-xl">Explore the menu</a>
             </div>
-            
+
             <div class="order-1 md:order-2">
-                <div class="hero-img-box">
-                    <img src="https://cdn.greatlifepublishing.net/wp-content/uploads/sites/2/2024/01/22155822/Cheesy-Ground-Beef-Empanadas-Hori-03.jpg?auto=format&fit=crop&q=80&w=1200" alt="Empanadas">
-                    <div class="floating-badge shadow-2xl">$8</div>
+                <div class="img-wrapper">
+                    <img src="https://cdn.greatlifepublishing.net/wp-content/uploads/sites/2/2024/01/22155822/Cheesy-Ground-Beef-Empanadas-Hori-03.jpg?auto=format&fit=crop&q=80&w=1200" alt="Zulia Street Food">
+                    <div class="badge-8 shadow-2xl">$8</div>
                 </div>
             </div>
-        </section>
+        </div>
 
         <section id="menu" class="py-32">
-            <div class="mb-20">
-                <h2 class="accent-font italic text-5xl tracking-tighter mb-2">The Classics</h2>
-                <p class="text-[10px] font-black uppercase tracking-widest text-stone-400">Handmade Daily • Always $8</p>
-            </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="menu-card">
-                    <span class="text-5xl font-black text-stone-100 mb-6 block">01</span>
+                <div class="p-12 bg-stone-50 rounded-[3rem] border border-stone-100 hover:shadow-2xl transition-all">
+                    <div class="text-5xl font-black text-yellow-400 mb-6">01</div>
                     <h3 class="text-2xl font-black uppercase mb-4">Pollo Mechado</h3>
                     <p class="text-stone-500 font-light">Shredded chicken slow-stewed in a vibrant sweet pepper and onion sofrito.</p>
                 </div>
-                <div class="menu-card">
-                    <span class="text-5xl font-black text-stone-100 mb-6 block">02</span>
+                <div class="p-12 bg-stone-50 rounded-[3rem] border border-stone-100 hover:shadow-2xl transition-all">
+                    <div class="text-5xl font-black text-yellow-400 mb-6">02</div>
                     <h3 class="text-2xl font-black uppercase mb-4">Cerdo Roast</h3>
                     <p class="text-stone-500 font-light">Tender pulled pork shoulder marinated in garlic, cumin, and Zulia spices.</p>
                 </div>
-                <div class="menu-card">
-                    <span class="text-5xl font-black text-stone-100 mb-6 block">03</span>
+                <div class="p-12 bg-stone-50 rounded-[3rem] border border-stone-100 hover:shadow-2xl transition-all">
+                    <div class="text-5xl font-black text-yellow-400 mb-6">03</div>
                     <h3 class="text-2xl font-black uppercase mb-4">Jardín (V)</h3>
-                    <p class="text-stone-500 font-light">Seasoned black beans and sweet plantains. The classic Maracucho veggie soul.</p>
+                    <p class="text-stone-500 font-light">Seasoned black beans and sweet plantains. The classic veggie soul.</p>
                 </div>
-            </div>
-        </section>
-
-        <section id="contact" class="py-32 border-t border-stone-100">
-            <div class="max-w-4xl grid md:grid-cols-2 gap-16">
-                <div>
-                    <h2 class="accent-font italic text-5xl tracking-tighter mb-6">Contact Michu</h2>
-                    <p class="text-stone-500 font-light mb-8 leading-relaxed">Ready to bring the flavors of Maracaibo to your next event or local pop-up?</p>
-                    <a href="mailto:hello@zuliaphilly.com" class="text-xl font-black border-b-4 border-yellow-400 pb-1">hello@zuliaphilly.com</a>
-                </div>
-                <form class="space-y-6">
-                    <input type="text" placeholder="NAME" class="w-full py-4 border-b border-stone-200 outline-none focus:border-yellow-400 transition-all font-black text-[10px] tracking-widest">
-                    <input type="email" placeholder="EMAIL" class="w-full py-4 border-b border-stone-200 outline-none focus:border-yellow-400 transition-all font-black text-[10px] tracking-widest">
-                    <textarea rows="3" placeholder="YOUR VIBE" class="w-full py-4 border-b border-stone-200 outline-none focus:border-yellow-400 transition-all font-black text-[10px] tracking-widest"></textarea>
-                    <button class="w-full bg-black text-white py-6 rounded-full font-black uppercase text-[10px] tracking-widest hover:bg-yellow-400 hover:text-black transition-all">Send Inquiry</button>
-                </form>
             </div>
         </section>
     </main>
 
-    <footer class="p-16 bg-stone-50 flex flex-col items-center text-center">
-        <div class="brand-logo mb-10 grayscale opacity-50"></div>
-        <p class="text-[9px] font-black uppercase tracking-[0.5em] text-stone-400">©2024 Zulia Venezuelan Street Food • Made in Philly</p>
+    <footer class="p-20 text-center bg-stone-50 border-t border-stone-200">
+        <div class="logo-container justify-center mb-8 grayscale opacity-50 scale-75">
+            <svg class="logo-svg" viewBox="0 0 110 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M30 25h50v10L50 65h30v10H30V65l30-30H30V25z" fill="black"/>
+                <path d="M38 5L20 40h18l-6 45 35-50H45l6-35z" fill="#FBBF24" />
+            </svg>
+            <span class="logo-text">ULIA</span>
+        </div>
+        <p class="text-[9px] font-black uppercase tracking-[0.5em] text-stone-400">©2024 Zulia Street Food • Philly Made</p>
     </footer>
 
 </body>
