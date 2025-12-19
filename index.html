@@ -601,31 +601,66 @@
                 padding: 1.5rem 2rem;
             }
 
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .nav-links a {
+                font-size: 0.75rem;
+            }
+
+            .hero-content h1 {
+                font-size: clamp(3.5rem, 12vw, 8rem);
+            }
+
             .about {
                 grid-template-columns: 1fr;
-                gap: 4rem;
-                padding: 8rem 2rem;
+                gap: 3rem;
+                padding: 6rem 2rem;
             }
 
             .about-image {
-                height: 500px;
+                height: 400px;
+                order: -1;
+            }
+
+            .about-text h2 {
+                font-size: clamp(1.8rem, 6vw, 2.5rem);
+            }
+
+            .menu {
+                padding: 6rem 2rem;
+            }
+
+            .menu-header h2 {
+                font-size: clamp(2rem, 7vw, 3rem);
             }
 
             .menu-grid {
                 grid-template-columns: 1fr;
+                margin-bottom: 3rem;
             }
 
             .menu-item {
                 border-right: none;
                 border-bottom: 1px solid #e0e0e0;
+                padding: 3rem 2rem;
             }
 
             .menu-item:last-child {
                 border-bottom: none;
             }
 
-            .packages, .contact {
-                padding: 8rem 2rem;
+            .menu-note {
+                padding: 3rem 1rem;
+            }
+
+            .packages {
+                padding: 6rem 2rem;
+            }
+
+            .packages-header h2 {
+                font-size: clamp(2rem, 7vw, 3rem);
             }
 
             .packages-grid {
@@ -633,13 +668,133 @@
                 gap: 2rem;
             }
 
+            .package-card {
+                padding: 3rem 2rem;
+            }
+
+            .contact {
+                padding: 6rem 2rem;
+            }
+
+            .contact h2 {
+                font-size: clamp(2rem, 7vw, 3rem);
+            }
+
             .contact-details {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
+            }
+
+            .contact-item {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav, nav.scrolled {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
             }
 
             .nav-links {
-                gap: 1.5rem;
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.7rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 0.75rem;
+            }
+
+            .about {
+                padding: 4rem 1.5rem;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .about-image::after {
+                font-size: 0.6rem;
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .about-text h2 {
+                font-size: 1.5rem;
+            }
+
+            .about-text p {
+                font-size: 0.95rem;
+            }
+
+            .menu {
+                padding: 4rem 1.5rem;
+            }
+
+            .menu-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .menu-item {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .menu-item h3 {
+                font-size: 1.5rem;
+            }
+
+            .menu-note {
+                padding: 2rem 1rem;
+            }
+
+            .menu-note p {
+                font-size: 0.9rem;
+            }
+
+            .packages {
+                padding: 4rem 1.5rem;
+            }
+
+            .packages-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .packages-header p {
+                font-size: 0.95rem;
+            }
+
+            .package-card {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .package-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .package-card .package-price {
+                font-size: 2rem;
+            }
+
+            .contact {
+                padding: 4rem 1.5rem;
+            }
+
+            .contact h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact > p {
+                font-size: 0.95rem;
             }
         }
 
@@ -673,9 +828,9 @@
         <div class="about-image"></div>
         <div class="about-text">
             <div class="label">Our Story</div>
-            <h2>Authentic Venezuelan cuisine, crafted with generations of tradition</h2>
-            <p>Chef Michelle "Michu" Medina brings the flavors of Maracaibo to Philadelphia, creating handmade empanadas using recipes passed down from her father, mother, and grandmother.</p>
-            <p>Each empanada is a celebration of Venezuelan heritage, made with care and authenticity for your catering needs and pop-up events throughout the city.</p>
+            <h2>From my abuela's kitchen to yours</h2>
+            <p>I grew up in Maracaibo watching my grandmother, mother, and father make empanadas. Now in Philly, I'm making them the same way—by hand, with the recipes they taught me.</p>
+            <p>Every empanada is made to order. No shortcuts, no mass production. Just good food made the way it should be.</p>
             <div class="chef-name">
                 <strong>Michelle "Michu" Medina</strong>
                 <span>Founder & Head Chef</span>
@@ -710,8 +865,8 @@
             </div>
         </div>
         <div class="menu-note">
-            <p>Each empanada is handcrafted to order using time-honored recipes passed down through three generations. Our golden, crispy exterior gives way to savory fillings that celebrate the authentic taste of Maracaibo.</p>
-            <p class="highlight">Made fresh daily with love and tradition</p>
+            <p>Each empanada is made by hand when you order. The dough is rolled fresh, the fillings are prepped daily, and everything gets fried to order. It's how my family has always done it.</p>
+            <p class="highlight">Made fresh, the old way</p>
         </div>
     </section>
 
@@ -719,15 +874,15 @@
     <section class="packages" id="packages">
         <div class="packages-header">
             <div class="label">Catering Packages</div>
-            <h2>Curated for Your Event</h2>
-            <p>From intimate gatherings to large celebrations, we offer flexible catering options to suit your needs.</p>
+            <h2>For Your Event</h2>
+            <p>Whether it's a work thing or a party, we've got you covered.</p>
         </div>
         <div class="packages-grid">
             <div class="package-card">
                 <div class="package-name">Intimate</div>
                 <h3>Small Gathering</h3>
                 <div class="package-price">$120<span> / 15 empanadas</span></div>
-                <p class="package-desc">Perfect for small office meetings or family gatherings</p>
+                <p class="package-desc">Good for small groups, office lunches, family dinners</p>
                 <ul>
                     <li>15 empanadas (your choice)</li>
                     <li>Mix & match any flavors</li>
@@ -740,7 +895,7 @@
                 <div class="package-name">Popular</div>
                 <h3>Standard Event</h3>
                 <div class="package-price">$320<span> / 40 empanadas</span></div>
-                <p class="package-desc">Ideal for parties, corporate events, and celebrations</p>
+                <p class="package-desc">Our most popular option—works for most parties and events</p>
                 <ul>
                     <li>40 empanadas (your choice)</li>
                     <li>Mix & match any flavors</li>
@@ -754,7 +909,7 @@
                 <div class="package-name">Premium</div>
                 <h3>Large Celebration</h3>
                 <div class="package-price">$750<span> / 100 empanadas</span></div>
-                <p class="package-desc">For weddings, festivals, and major events</p>
+                <p class="package-desc">For weddings, big parties, festivals—the works</p>
                 <ul>
                     <li>100 empanadas (your choice)</li>
                     <li>Mix & match any flavors</li>
@@ -770,7 +925,7 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <h2>Get in Touch</h2>
-        <p>Available for catering and pop-up events throughout Philadelphia</p>
+        <p>Available for catering and pop-ups around Philly</p>
         <div class="contact-details">
             <div class="contact-item">
                 <span class="label-small">Location</span>
