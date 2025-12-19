@@ -3,108 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZULIA | Hand-Pressed Philly</title>
+    <title>ZULIA | Venezuelan Street Food</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Syne:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --zulia-gold: #FBBF24; --zulia-dark: #1A1A1A; --zulia-bone: #F9F8F4; }
-        body { font-family: 'Space Grotesk', sans-serif; background-color: var(--zulia-bone); color: var(--zulia-dark); }
-        h1, h2, .brand { font-family: 'Syne', sans-serif; text-transform: uppercase; }
+        body { font-family: 'Outfit', sans-serif; background-color: #ffffff; color: #000000; scroll-behavior: smooth; }
+        h1, h2, .logo-type { font-family: 'Syne', sans-serif; }
         
-        /* THE UNBREAKABLE LOGO */
-        .logo-wrap { display: flex; align-items: center; gap: 4px; }
-        .logo-v { height: 45px; width: auto; }
+        /* Clean Navigation */
+        nav { border-bottom: 1px solid #f2f2f2; }
         
-        .hero-split { display: flex; min-height: 90vh; align-items: stretch; }
-        .hero-text { flex: 1; padding: 10% 5%; display: flex; flex-direction: column; justify-content: center; }
-        .hero-visual { flex: 1; background: url('https://cdn.greatlifepublishing.net/wp-content/uploads/sites/2/2024/01/22155822/Cheesy-Ground-Beef-Empanadas-Hori-03.jpg') center/cover no-repeat; position: relative; }
-        
-        @media (max-width: 1024px) {
-            .hero-split { flex-direction: column; }
-            .hero-visual { min-height: 400px; order: -1; }
+        /* Hero Image - High Contrast & Clean */
+        .hero-img {
+            width: 100%;
+            height: 60vh;
+            object-fit: cover;
+            filter: contrast(1.05);
+            border-radius: 4px;
         }
 
-        .sticker-8 {
-            position: absolute; top: 40px; right: 40px;
-            background: var(--zulia-gold); color: black;
-            padding: 20px; border-radius: 50%; font-weight: 800;
-            transform: rotate(15deg); border: 3px dashed black;
+        .btn-black {
+            background: #000;
+            color: #fff;
+            padding: 1rem 2.5rem;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            transition: all 0.3s ease;
         }
 
-        .menu-item { border-left: 1px solid #ddd; padding-left: 2rem; transition: all 0.4s; }
-        .menu-item:hover { border-left: 4px solid var(--zulia-gold); padding-left: 2.5rem; }
+        .btn-black:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+        }
+        
+        .price-tag {
+            font-family: 'Syne', sans-serif;
+            font-size: 4rem;
+            color: #FBBF24;
+            line-height: 1;
+        }
     </style>
 </head>
 <body>
 
-    <nav class="fixed w-full p-6 flex justify-between items-center z-50 mix-blend-difference text-white">
-        <div class="logo-wrap">
-            <svg class="logo-v" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 25h60v12L45 70h35v10H20V70l35-33H20V25z" fill="white"/>
-                <path d="M42 5L20 45h22l-8 50L75 35H48l8-30H42z" fill="#FBBF24" />
-            </svg>
-            <span class="brand text-2xl tracking-tighter">ULIA</span>
+    <nav class="py-8 px-6 md:px-12 flex justify-between items-center sticky top-0 bg-white/95 backdrop-blur-sm z-50">
+        <div class="logo-type text-3xl font-800 tracking-tighter">
+            ZULIA<span class="text-yellow-400">.</span>
         </div>
-        <div class="hidden md:flex gap-8 text-xs font-bold tracking-[0.3em]">
-            <a href="#drop">THE DROP</a>
-            <a href="#catering">CATERING</a>
-            <a href="mailto:hello@zuliaphilly.com" class="bg-white text-black px-6 py-2 rounded-full">LET'S EAT</a>
+        <div class="hidden md:flex gap-12 text-[11px] font-bold uppercase tracking-[0.25em]">
+            <a href="#menu" class="hover:opacity-50 transition-opacity">Menu</a>
+            <a href="#catering" class="hover:opacity-50 transition-opacity">Catering</a>
+            <a href="#contact" class="hover:opacity-50 transition-opacity">Contact</a>
         </div>
     </nav>
 
-    <section class="hero-split">
-        <div class="hero-text">
-            <h2 class="text-stone-400 text-sm tracking-[0.6em] mb-4">Maracaibo Soul / Philly Soil</h2>
-            <h1 class="text-7xl md:text-[10rem] leading-[0.8] mb-8 italic">THE<br>GOLDEN<br>FOLD.</h1>
-            <p class="max-w-md text-xl font-light leading-relaxed mb-10 text-stone-600">
-                Chef Michu is hand-pressing the best empanadas in the city. 100% non-GMO corn. Deeply authentic. High-key addictive.
-            </p>
+    <header class="max-w-7xl mx-auto px-6 py-12 md:py-24">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
             <div>
-                <a href="#drop" class="inline-block border-2 border-black px-10 py-4 font-bold hover:bg-black hover:text-white transition-all">SEE THE DROP</a>
+                <h1 class="text-6xl md:text-8xl font-800 tracking-tightest leading-[0.9] mb-8">
+                    STREET <br>FOOD, <br>ELEVATED.
+                </h1>
+                <p class="text-lg text-gray-500 max-w-sm mb-12 font-light leading-relaxed">
+                    Chef Michu’s artisanal empanadas. 100% non-GMO corn, hand-pressed in Philadelphia.
+                </p>
+                <a href="#menu" class="btn-black">Explore the Drop</a>
             </div>
-        </div>
-        <div class="hero-visual">
-            <div class="sticker-8">ONLY $8</div>
-        </div>
-    </section>
-
-    <section id="drop" class="py-32 px-10 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl mb-20 underline decoration-yellow-400 decoration-4 underline-offset-8">THE CLASSIC THREE</h2>
-            <div class="grid md:grid-cols-3 gap-20">
-                <div class="menu-item">
-                    <h3 class="text-2xl font-bold mb-4">POLLO MECHADO</h3>
-                    <p class="text-stone-500">Shredded chicken slow-stewed in a sweet pepper and onion sofrito. The gold standard.</p>
-                </div>
-                <div class="menu-item">
-                    <h3 class="text-2xl font-bold mb-4">CERDO ROAST</h3>
-                    <p class="text-stone-500">Tender pulled pork shoulder marinated in garlic, cumin, and Zulia spices.</p>
-                </div>
-                <div class="menu-item">
-                    <h3 class="text-2xl font-bold mb-4">JARDÍN (V)</h3>
-                    <p class="text-stone-500">Seasoned black beans and sweet plantains. The Maracucho soul in a shell.</p>
+            <div class="relative">
+                <img src="https://cdn.greatlifepublishing.net/wp-content/uploads/sites/2/2024/01/22155822/Cheesy-Ground-Beef-Empanadas-Hori-03.jpg" alt="Zulia Empanadas" class="hero-img">
+                <div class="absolute -bottom-10 -right-4 bg-white p-8 shadow-xl">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Flat Rate</p>
+                    <div class="price-tag">$8</div>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <section id="catering" class="bg-stone-900 text-white py-32 px-10">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-5xl md:text-8xl mb-10">CATER THE CROWD.</h2>
-            <p class="text-xl text-stone-400 mb-12">Office lunch, house party, or late night pop-up. Michu handles the heat.</p>
-            <a href="mailto:hello@zuliaphilly.com" class="text-3xl border-b-2 border-yellow-400 pb-2 hover:text-yellow-400 transition-all">hello@zuliaphilly.com</a>
+    <section id="menu" class="bg-gray-50 py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-800 mb-20 tracking-tighter">THE CLASSIC THREE.</h2>
+            <div class="menu-grid">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 uppercase tracking-widest">01. Pollo Mechado</h3>
+                    <p class="text-gray-500 font-light leading-relaxed">Shredded chicken slow-stewed in a vibrant sweet pepper and onion sofrito. The gold standard.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 uppercase tracking-widest">02. Cerdo Roast</h3>
+                    <p class="text-gray-500 font-light leading-relaxed">Tender pulled pork shoulder marinated in garlic, cumin, and Zulia spices. Rich and smokey.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 uppercase tracking-widest">03. Jardín (V)</h3>
+                    <p class="text-gray-500 font-light leading-relaxed">Seasoned black beans and sweet plantains. The classic Maracucho veggie soul.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="p-10 flex flex-col items-center gap-6">
-        <div class="logo-wrap opacity-20 grayscale">
-            <svg class="logo-v" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 25h60v12L45 70h35v10H20V70l35-33H20V25z" fill="black"/>
-                <path d="M42 5L20 45h22l-8 50L75 35H48l8-30H42z" fill="#000" />
-            </svg>
-            <span class="brand text-2xl">ULIA</span>
+    <section id="catering" class="py-32 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-5xl md:text-7xl font-800 mb-8 tracking-tighter">WANT IT ALL?</h2>
+            <p class="text-xl text-gray-400 mb-12 font-light">Available for events, office pop-ups, and private catering across Philly.</p>
+            <a href="mailto:hello@zuliaphilly.com" class="text-2xl md:text-4xl font-bold border-b-2 border-black pb-2 hover:text-yellow-500 hover:border-yellow-500 transition-all">
+                hello@zuliaphilly.com
+            </a>
         </div>
-        <p class="text-[10px] tracking-[1em] text-stone-400 uppercase">ZULIA STREET FOOD • PHILLY MADE</p>
+    </section>
+
+    <footer class="py-20 px-6 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="logo-type text-2xl font-800">ZULIA.</div>
+        <div class="text-[10px] font-bold tracking-[0.4em] text-gray-300 uppercase">
+            ©2024 Zulia Street Food / Maracaibo Soul / Philly Soil
+        </div>
     </footer>
 
 </body>
