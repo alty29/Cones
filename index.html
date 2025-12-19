@@ -3,103 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZULIA | Venezuelan Street Food</title>
+    <title>ZULIA | Hand-Pressed Philly</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;900&family=Playfair+Display:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Syne:wght@800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Outfit', sans-serif; background-color: #fff; color: #121212; scroll-behavior: smooth; }
-        .accent-font { font-family: 'Playfair Display', serif; }
-
-        /* THE ABSOLUTE LOGO FIX: One Coordinate Map */
-        .logo-container { display: flex; align-items: center; gap: 4px; }
-        .logo-svg { height: 44px; width: auto; overflow: visible; }
-        .logo-text { font-weight: 900; font-size: 2.2rem; letter-spacing: -2px; line-height: 1; }
-        .logo-dot { width: 10px; height: 10px; background-color: #FBBF24; border-radius: 50%; margin-top: 16px; margin-left: 2px; }
-
-        /* Hero Image Layout Fix */
-        .hero-section { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; min-height: 80vh; }
-        @media (max-width: 768px) { .hero-section { grid-template-columns: 1fr; text-align: center; } }
-
-        .img-wrapper { position: relative; width: 100%; max-width: 500px; margin: 0 auto; }
-        .img-wrapper img { width: 100%; height: auto; border-radius: 3rem; box-shadow: 0 40px 80px rgba(0,0,0,0.1); }
+        :root { --zulia-gold: #FBBF24; --zulia-dark: #1A1A1A; --zulia-bone: #F9F8F4; }
+        body { font-family: 'Space Grotesk', sans-serif; background-color: var(--zulia-bone); color: var(--zulia-dark); }
+        h1, h2, .brand { font-family: 'Syne', sans-serif; text-transform: uppercase; }
         
-        .badge-8 {
-            position: absolute; bottom: -20px; left: -20px;
-            background: #FBBF24; width: 95px; height: 95px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 900; font-size: 2.5rem; border: 8px solid white; 
-            transform: rotate(-10deg); box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        /* THE UNBREAKABLE LOGO */
+        .logo-wrap { display: flex; align-items: center; gap: 4px; }
+        .logo-v { height: 45px; width: auto; }
+        
+        .hero-split { display: flex; min-height: 90vh; align-items: stretch; }
+        .hero-text { flex: 1; padding: 10% 5%; display: flex; flex-direction: column; justify-content: center; }
+        .hero-visual { flex: 1; background: url('https://cdn.greatlifepublishing.net/wp-content/uploads/sites/2/2024/01/22155822/Cheesy-Ground-Beef-Empanadas-Hori-03.jpg') center/cover no-repeat; position: relative; }
+        
+        @media (max-width: 1024px) {
+            .hero-split { flex-direction: column; }
+            .hero-visual { min-height: 400px; order: -1; }
         }
+
+        .sticker-8 {
+            position: absolute; top: 40px; right: 40px;
+            background: var(--zulia-gold); color: black;
+            padding: 20px; border-radius: 50%; font-weight: 800;
+            transform: rotate(15deg); border: 3px dashed black;
+        }
+
+        .menu-item { border-left: 1px solid #ddd; padding-left: 2rem; transition: all 0.4s; }
+        .menu-item:hover { border-left: 4px solid var(--zulia-gold); padding-left: 2.5rem; }
     </style>
 </head>
-<body class="selection:bg-yellow-200">
+<body>
 
-    <nav class="p-6 md:px-16 flex justify-between items-center sticky top-0 bg-white/90 backdrop-blur-md z-50">
-        <div class="logo-container">
-            <svg class="logo-svg" viewBox="0 0 110 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M30 25h50v10L50 65h30v10H30V65l30-30H30V25z" fill="black"/>
-                <path d="M38 5L20 40h18l-6 45 35-50H45l6-35z" fill="#FBBF24" stroke="white" stroke-width="4"/>
+    <nav class="fixed w-full p-6 flex justify-between items-center z-50 mix-blend-difference text-white">
+        <div class="logo-wrap">
+            <svg class="logo-v" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 25h60v12L45 70h35v10H20V70l35-33H20V25z" fill="white"/>
+                <path d="M42 5L20 45h22l-8 50L75 35H48l8-30H42z" fill="#FBBF24" />
             </svg>
-            <span class="logo-text">ULIA</span>
-            <div class="logo-dot"></div>
+            <span class="brand text-2xl tracking-tighter">ULIA</span>
         </div>
-        <div class="hidden md:flex gap-10 text-[10px] font-black uppercase tracking-widest">
-            <a href="#menu" class="hover:text-yellow-600 transition-all">The Drop</a>
-            <a href="#contact" class="bg-black text-white px-8 py-3 rounded-full hover:bg-yellow-400 hover:text-black transition-all">Contact</a>
+        <div class="hidden md:flex gap-8 text-xs font-bold tracking-[0.3em]">
+            <a href="#drop">THE DROP</a>
+            <a href="#catering">CATERING</a>
+            <a href="mailto:hello@zuliaphilly.com" class="bg-white text-black px-6 py-2 rounded-full">LET'S EAT</a>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-6 md:px-16 py-12 md:py-20">
-        <div class="hero-section">
-            <div class="order-2 md:order-1">
-                <p class="text-[10px] font-black uppercase tracking-[0.4em] text-stone-400 mb-6">Maracaibo to Philadelphia</p>
-                <h1 class="accent-font italic text-6xl md:text-[8.5rem] leading-[0.85] tracking-tighter mb-10">
-                    Golden <br> Hand-Pressed <br> Tradition.
-                </h1>
-                <p class="text-xl text-stone-500 font-light max-w-md mb-12 leading-relaxed">
-                    Chef Michu brings the heat of Zulia to Philly. Artisanal empanadas made from 100% non-GMO corn and generations of sazón.
-                </p>
-                <a href="#menu" class="bg-black text-white px-12 py-5 rounded-full font-black uppercase text-[10px] tracking-widest hover:bg-yellow-400 hover:text-black transition-all shadow-xl">Explore the menu</a>
+    <section class="hero-split">
+        <div class="hero-text">
+            <h2 class="text-stone-400 text-sm tracking-[0.6em] mb-4">Maracaibo Soul / Philly Soil</h2>
+            <h1 class="text-7xl md:text-[10rem] leading-[0.8] mb-8 italic">THE<br>GOLDEN<br>FOLD.</h1>
+            <p class="max-w-md text-xl font-light leading-relaxed mb-10 text-stone-600">
+                Chef Michu is hand-pressing the best empanadas in the city. 100% non-GMO corn. Deeply authentic. High-key addictive.
+            </p>
+            <div>
+                <a href="#drop" class="inline-block border-2 border-black px-10 py-4 font-bold hover:bg-black hover:text-white transition-all">SEE THE DROP</a>
             </div>
+        </div>
+        <div class="hero-visual">
+            <div class="sticker-8">ONLY $8</div>
+        </div>
+    </section>
 
-            <div class="order-1 md:order-2">
-                <div class="img-wrapper">
-                    <img src="https://cdn.greatlifepublishing.net/wp-content/uploads/sites/2/2024/01/22155822/Cheesy-Ground-Beef-Empanadas-Hori-03.jpg?auto=format&fit=crop&q=80&w=1200" alt="Zulia Street Food">
-                    <div class="badge-8 shadow-2xl">$8</div>
+    <section id="drop" class="py-32 px-10 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl mb-20 underline decoration-yellow-400 decoration-4 underline-offset-8">THE CLASSIC THREE</h2>
+            <div class="grid md:grid-cols-3 gap-20">
+                <div class="menu-item">
+                    <h3 class="text-2xl font-bold mb-4">POLLO MECHADO</h3>
+                    <p class="text-stone-500">Shredded chicken slow-stewed in a sweet pepper and onion sofrito. The gold standard.</p>
+                </div>
+                <div class="menu-item">
+                    <h3 class="text-2xl font-bold mb-4">CERDO ROAST</h3>
+                    <p class="text-stone-500">Tender pulled pork shoulder marinated in garlic, cumin, and Zulia spices.</p>
+                </div>
+                <div class="menu-item">
+                    <h3 class="text-2xl font-bold mb-4">JARDÍN (V)</h3>
+                    <p class="text-stone-500">Seasoned black beans and sweet plantains. The Maracucho soul in a shell.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <section id="menu" class="py-32">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-12 bg-stone-50 rounded-[3rem] border border-stone-100 hover:shadow-2xl transition-all">
-                    <div class="text-5xl font-black text-yellow-400 mb-6">01</div>
-                    <h3 class="text-2xl font-black uppercase mb-4">Pollo Mechado</h3>
-                    <p class="text-stone-500 font-light">Shredded chicken slow-stewed in a vibrant sweet pepper and onion sofrito.</p>
-                </div>
-                <div class="p-12 bg-stone-50 rounded-[3rem] border border-stone-100 hover:shadow-2xl transition-all">
-                    <div class="text-5xl font-black text-yellow-400 mb-6">02</div>
-                    <h3 class="text-2xl font-black uppercase mb-4">Cerdo Roast</h3>
-                    <p class="text-stone-500 font-light">Tender pulled pork shoulder marinated in garlic, cumin, and Zulia spices.</p>
-                </div>
-                <div class="p-12 bg-stone-50 rounded-[3rem] border border-stone-100 hover:shadow-2xl transition-all">
-                    <div class="text-5xl font-black text-yellow-400 mb-6">03</div>
-                    <h3 class="text-2xl font-black uppercase mb-4">Jardín (V)</h3>
-                    <p class="text-stone-500 font-light">Seasoned black beans and sweet plantains. The classic veggie soul.</p>
-                </div>
-            </div>
-        </section>
-    </main>
+    <section id="catering" class="bg-stone-900 text-white py-32 px-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl md:text-8xl mb-10">CATER THE CROWD.</h2>
+            <p class="text-xl text-stone-400 mb-12">Office lunch, house party, or late night pop-up. Michu handles the heat.</p>
+            <a href="mailto:hello@zuliaphilly.com" class="text-3xl border-b-2 border-yellow-400 pb-2 hover:text-yellow-400 transition-all">hello@zuliaphilly.com</a>
+        </div>
+    </section>
 
-    <footer class="p-20 text-center bg-stone-50 border-t border-stone-200">
-        <div class="logo-container justify-center mb-8 grayscale opacity-50 scale-75">
-            <svg class="logo-svg" viewBox="0 0 110 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M30 25h50v10L50 65h30v10H30V65l30-30H30V25z" fill="black"/>
-                <path d="M38 5L20 40h18l-6 45 35-50H45l6-35z" fill="#FBBF24" />
+    <footer class="p-10 flex flex-col items-center gap-6">
+        <div class="logo-wrap opacity-20 grayscale">
+            <svg class="logo-v" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 25h60v12L45 70h35v10H20V70l35-33H20V25z" fill="black"/>
+                <path d="M42 5L20 45h22l-8 50L75 35H48l8-30H42z" fill="#000" />
             </svg>
-            <span class="logo-text">ULIA</span>
+            <span class="brand text-2xl">ULIA</span>
         </div>
-        <p class="text-[9px] font-black uppercase tracking-[0.5em] text-stone-400">©2024 Zulia Street Food • Philly Made</p>
+        <p class="text-[10px] tracking-[1em] text-stone-400 uppercase">ZULIA STREET FOOD • PHILLY MADE</p>
     </footer>
 
 </body>
