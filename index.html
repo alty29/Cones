@@ -119,6 +119,33 @@
             opacity: 0.3;
         }
 
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #999;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease 0.6s forwards;
+        }
+
+        .scroll-indicator::after {
+            content: '↓';
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 1.2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
         @keyframes fadeInUp {
             to {
                 opacity: 1;
@@ -413,6 +440,30 @@
             letter-spacing: 0.02em;
         }
 
+        .menu-cta {
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .menu-cta a {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: #2a2a2a;
+            color: white;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            font-weight: 400;
+        }
+
+        .menu-cta a:hover {
+            background: #1a1a1a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
         .menu-grid {
             max-width: 1200px;
             margin: 0 auto 6rem;
@@ -551,6 +602,30 @@
             letter-spacing: 0.02em;
         }
 
+        .social-proof {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            padding: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .social-proof p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-proof .author {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-style: normal;
+        }
+
         .contact-details {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -685,8 +760,12 @@
                 gap: 1.5rem;
             }
 
-            .contact-item {
-                padding: 2rem 1.5rem;
+            .scroll-indicator {
+                display: none;
+            }
+
+            .social-proof {
+                margin-bottom: 3rem;
             }
         }
 
@@ -820,6 +899,7 @@
         <div class="hero-content">
             <h1>ZULIA</h1>
             <p>Venezuelan Catering <span class="separator">·</span> Philadelphia</p>
+            <div class="scroll-indicator">Explore</div>
         </div>
     </section>
 
@@ -829,7 +909,7 @@
         <div class="about-text">
             <div class="label">Our Story</div>
             <h2>From my abuela's kitchen to yours</h2>
-            <p>I grew up in Maracaibo watching my grandmother, mother, and father make empanadas. Now in Philly, I'm making them the same way—by hand, with the recipes they taught me.</p>
+            <p>I grew up in Maracaibo watching my grandmother, mother, and aunt make empanadas. Now in Philadelphia, I'm making them the same way—by hand, with the recipes they taught me.</p>
             <p>Every empanada is made to order. No shortcuts, no mass production. Just good food made the way it should be.</p>
             <div class="chef-name">
                 <strong>Michelle "Michu" Medina</strong>
@@ -866,7 +946,10 @@
         </div>
         <div class="menu-note">
             <p>Each empanada is made by hand when you order. The dough is rolled fresh, the fillings are prepped daily, and everything gets fried to order. It's how my family has always done it.</p>
-            <p class="highlight">Made fresh, the old way</p>
+            <p class="highlight">Made fresh, the right way</p>
+        </div>
+        <div class="menu-cta">
+            <a href="#packages">View Catering Packages</a>
         </div>
     </section>
 
@@ -926,6 +1009,10 @@
     <section class="contact" id="contact">
         <h2>Get in Touch</h2>
         <p>Available for catering and pop-ups around Philly</p>
+        <div class="social-proof">
+            <p>"Best empanadas I've had outside of Venezuela. Michu's food always brings people together at our events."</p>
+            <p class="author">— Alex R., Karate Instructor</p>
+        </div>
         <div class="contact-details">
             <div class="contact-item">
                 <span class="label-small">Location</span>
@@ -947,7 +1034,6 @@
     </footer>
 
     <script>
-        // Add scroll effect to navigation
         window.addEventListener('scroll', function() {
             const nav = document.getElementById('nav');
             if (window.scrollY > 50) {
